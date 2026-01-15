@@ -966,6 +966,7 @@ export const TeamScalarFieldEnum = {
   teamLeaderEmail: 'teamLeaderEmail',
   teamLeaderPhone: 'teamLeaderPhone',
   nftMinted: 'nftMinted',
+  isOnUnstop: 'isOnUnstop',
   walletAddress: 'walletAddress',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

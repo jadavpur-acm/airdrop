@@ -1,6 +1,6 @@
 generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -80,6 +80,7 @@ model Team {
   teamLeaderEmail String
   teamLeaderPhone String?
   nftMinted       Boolean  @default(false)
+  isOnUnstop     Boolean  @default(false)
   walletAddress   String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt

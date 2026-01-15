@@ -30,6 +30,7 @@ export type TeamMinAggregateOutputType = {
   teamLeaderEmail: string | null
   teamLeaderPhone: string | null
   nftMinted: boolean | null
+  isOnUnstop: boolean | null
   walletAddress: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -41,6 +42,7 @@ export type TeamMaxAggregateOutputType = {
   teamLeaderEmail: string | null
   teamLeaderPhone: string | null
   nftMinted: boolean | null
+  isOnUnstop: boolean | null
   walletAddress: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -52,6 +54,7 @@ export type TeamCountAggregateOutputType = {
   teamLeaderEmail: number
   teamLeaderPhone: number
   nftMinted: number
+  isOnUnstop: number
   walletAddress: number
   createdAt: number
   updatedAt: number
@@ -65,6 +68,7 @@ export type TeamMinAggregateInputType = {
   teamLeaderEmail?: true
   teamLeaderPhone?: true
   nftMinted?: true
+  isOnUnstop?: true
   walletAddress?: true
   createdAt?: true
   updatedAt?: true
@@ -76,6 +80,7 @@ export type TeamMaxAggregateInputType = {
   teamLeaderEmail?: true
   teamLeaderPhone?: true
   nftMinted?: true
+  isOnUnstop?: true
   walletAddress?: true
   createdAt?: true
   updatedAt?: true
@@ -87,6 +92,7 @@ export type TeamCountAggregateInputType = {
   teamLeaderEmail?: true
   teamLeaderPhone?: true
   nftMinted?: true
+  isOnUnstop?: true
   walletAddress?: true
   createdAt?: true
   updatedAt?: true
@@ -171,6 +177,7 @@ export type TeamGroupByOutputType = {
   teamLeaderEmail: string
   teamLeaderPhone: string | null
   nftMinted: boolean
+  isOnUnstop: boolean
   walletAddress: string | null
   createdAt: Date
   updatedAt: Date
@@ -203,6 +210,7 @@ export type TeamWhereInput = {
   teamLeaderEmail?: Prisma.StringFilter<"Team"> | string
   teamLeaderPhone?: Prisma.StringNullableFilter<"Team"> | string | null
   nftMinted?: Prisma.BoolFilter<"Team"> | boolean
+  isOnUnstop?: Prisma.BoolFilter<"Team"> | boolean
   walletAddress?: Prisma.StringNullableFilter<"Team"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Team"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Team"> | Date | string
@@ -214,6 +222,7 @@ export type TeamOrderByWithRelationInput = {
   teamLeaderEmail?: Prisma.SortOrder
   teamLeaderPhone?: Prisma.SortOrderInput | Prisma.SortOrder
   nftMinted?: Prisma.SortOrder
+  isOnUnstop?: Prisma.SortOrder
   walletAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -228,6 +237,7 @@ export type TeamWhereUniqueInput = Prisma.AtLeast<{
   teamLeaderEmail?: Prisma.StringFilter<"Team"> | string
   teamLeaderPhone?: Prisma.StringNullableFilter<"Team"> | string | null
   nftMinted?: Prisma.BoolFilter<"Team"> | boolean
+  isOnUnstop?: Prisma.BoolFilter<"Team"> | boolean
   walletAddress?: Prisma.StringNullableFilter<"Team"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Team"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Team"> | Date | string
@@ -239,6 +249,7 @@ export type TeamOrderByWithAggregationInput = {
   teamLeaderEmail?: Prisma.SortOrder
   teamLeaderPhone?: Prisma.SortOrderInput | Prisma.SortOrder
   nftMinted?: Prisma.SortOrder
+  isOnUnstop?: Prisma.SortOrder
   walletAddress?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -256,6 +267,7 @@ export type TeamScalarWhereWithAggregatesInput = {
   teamLeaderEmail?: Prisma.StringWithAggregatesFilter<"Team"> | string
   teamLeaderPhone?: Prisma.StringNullableWithAggregatesFilter<"Team"> | string | null
   nftMinted?: Prisma.BoolWithAggregatesFilter<"Team"> | boolean
+  isOnUnstop?: Prisma.BoolWithAggregatesFilter<"Team"> | boolean
   walletAddress?: Prisma.StringNullableWithAggregatesFilter<"Team"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Team"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Team"> | Date | string
@@ -267,6 +279,7 @@ export type TeamCreateInput = {
   teamLeaderEmail: string
   teamLeaderPhone?: string | null
   nftMinted?: boolean
+  isOnUnstop?: boolean
   walletAddress?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -278,6 +291,7 @@ export type TeamUncheckedCreateInput = {
   teamLeaderEmail: string
   teamLeaderPhone?: string | null
   nftMinted?: boolean
+  isOnUnstop?: boolean
   walletAddress?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -289,6 +303,7 @@ export type TeamUpdateInput = {
   teamLeaderEmail?: Prisma.StringFieldUpdateOperationsInput | string
   teamLeaderPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nftMinted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isOnUnstop?: Prisma.BoolFieldUpdateOperationsInput | boolean
   walletAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -300,6 +315,7 @@ export type TeamUncheckedUpdateInput = {
   teamLeaderEmail?: Prisma.StringFieldUpdateOperationsInput | string
   teamLeaderPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nftMinted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isOnUnstop?: Prisma.BoolFieldUpdateOperationsInput | boolean
   walletAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -311,6 +327,7 @@ export type TeamCreateManyInput = {
   teamLeaderEmail: string
   teamLeaderPhone?: string | null
   nftMinted?: boolean
+  isOnUnstop?: boolean
   walletAddress?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -322,6 +339,7 @@ export type TeamUpdateManyMutationInput = {
   teamLeaderEmail?: Prisma.StringFieldUpdateOperationsInput | string
   teamLeaderPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nftMinted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isOnUnstop?: Prisma.BoolFieldUpdateOperationsInput | boolean
   walletAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -333,6 +351,7 @@ export type TeamUncheckedUpdateManyInput = {
   teamLeaderEmail?: Prisma.StringFieldUpdateOperationsInput | string
   teamLeaderPhone?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   nftMinted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  isOnUnstop?: Prisma.BoolFieldUpdateOperationsInput | boolean
   walletAddress?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -344,6 +363,7 @@ export type TeamCountOrderByAggregateInput = {
   teamLeaderEmail?: Prisma.SortOrder
   teamLeaderPhone?: Prisma.SortOrder
   nftMinted?: Prisma.SortOrder
+  isOnUnstop?: Prisma.SortOrder
   walletAddress?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -355,6 +375,7 @@ export type TeamMaxOrderByAggregateInput = {
   teamLeaderEmail?: Prisma.SortOrder
   teamLeaderPhone?: Prisma.SortOrder
   nftMinted?: Prisma.SortOrder
+  isOnUnstop?: Prisma.SortOrder
   walletAddress?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -366,6 +387,7 @@ export type TeamMinOrderByAggregateInput = {
   teamLeaderEmail?: Prisma.SortOrder
   teamLeaderPhone?: Prisma.SortOrder
   nftMinted?: Prisma.SortOrder
+  isOnUnstop?: Prisma.SortOrder
   walletAddress?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -379,6 +401,7 @@ export type TeamSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   teamLeaderEmail?: boolean
   teamLeaderPhone?: boolean
   nftMinted?: boolean
+  isOnUnstop?: boolean
   walletAddress?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -390,6 +413,7 @@ export type TeamSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   teamLeaderEmail?: boolean
   teamLeaderPhone?: boolean
   nftMinted?: boolean
+  isOnUnstop?: boolean
   walletAddress?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -401,6 +425,7 @@ export type TeamSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   teamLeaderEmail?: boolean
   teamLeaderPhone?: boolean
   nftMinted?: boolean
+  isOnUnstop?: boolean
   walletAddress?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -412,12 +437,13 @@ export type TeamSelectScalar = {
   teamLeaderEmail?: boolean
   teamLeaderPhone?: boolean
   nftMinted?: boolean
+  isOnUnstop?: boolean
   walletAddress?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type TeamOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "teamId" | "teamLeaderEmail" | "teamLeaderPhone" | "nftMinted" | "walletAddress" | "createdAt" | "updatedAt", ExtArgs["result"]["team"]>
+export type TeamOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "teamId" | "teamLeaderEmail" | "teamLeaderPhone" | "nftMinted" | "isOnUnstop" | "walletAddress" | "createdAt" | "updatedAt", ExtArgs["result"]["team"]>
 
 export type $TeamPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Team"
@@ -428,6 +454,7 @@ export type $TeamPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     teamLeaderEmail: string
     teamLeaderPhone: string | null
     nftMinted: boolean
+    isOnUnstop: boolean
     walletAddress: string | null
     createdAt: Date
     updatedAt: Date
@@ -859,6 +886,7 @@ export interface TeamFieldRefs {
   readonly teamLeaderEmail: Prisma.FieldRef<"Team", 'String'>
   readonly teamLeaderPhone: Prisma.FieldRef<"Team", 'String'>
   readonly nftMinted: Prisma.FieldRef<"Team", 'Boolean'>
+  readonly isOnUnstop: Prisma.FieldRef<"Team", 'Boolean'>
   readonly walletAddress: Prisma.FieldRef<"Team", 'String'>
   readonly createdAt: Prisma.FieldRef<"Team", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Team", 'DateTime'>
