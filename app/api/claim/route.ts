@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth"; // server auth
 import { uploadToPinata, uploadToPinataJSON } from "@/lib/pinata";
 import prisma from "@/lib/db";
-import { mintQueue } from "@/lib/queue";
+import { mintNFT } from "@/lib/mint";
 import { headers } from "next/headers";
 
 export async function POST(req: NextRequest) {
@@ -64,14 +64,10 @@ export async function POST(req: NextRequest) {
         }
     });
 
-    // 5. Add to Queue
-    await mintQueue.add("mint", {
-        teamId: team.teamId,
-        walletAddress,
-        imageUri: metadataUri // Passing Metadata URI as the main URI for minting
-    });
+    // 5. Direct Mint
+    const txHash = await mintNFT(team.teamId, walletAddress, metadataUri);
 
-    return NextResponse.json({ success: true, message: "Claim submitted, minting in progress" });
+    return NextResponse.json({ success: true, message: "Claim submitted and minted", txHash });
 
   } catch (error) {
     console.error("Claim error:", error);

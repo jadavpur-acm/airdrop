@@ -364,7 +364,12 @@ export default function AirdropPage() {
                                     />
                                 </div>
                                 <Button type="submit" disabled={loading} size="lg" className="w-full h-18 rounded-2xl font-black bg-white text-black hover:bg-neutral-200 text-base tracking-widest">
-                                    {loading ? <Loader2 className="h-6 w-6 animate-spin" /> : "CONFIRM VERIFICATION"}
+                                    {loading ? (
+                                        <span className="flex items-center gap-2">
+                                            <Loader2 className="h-6 w-6 animate-spin" />
+                                            MINTING NFT... DO NOT CLOSE WINDOW
+                                        </span>
+                                    ) : "CONFIRM VERIFICATION"}
                                 </Button>
                             </form>
                         )}
@@ -398,8 +403,13 @@ export default function AirdropPage() {
                                 <div className="space-y-4 px-4">
                                     <h3 className="text-2xl font-black italic tracking-tighter uppercase text-emerald-400 leading-tight">IDENTITY MATERIALIZED</h3>
                                     <p className="text-neutral-400 text-xs font-bold leading-relaxed italic max-w-xs mx-auto">
-                                        Registration successful. Your NFT is being minted.
+                                        Registration successful. Your NFT has been minted.
                                     </p>
+                                    {regHash && (
+                                        <a href={`https://sepolia.etherscan.io/tx/${regHash}`} target="_blank" rel="noreferrer" className="block text-[10px] text-neutral-500 hover:text-white underline underline-offset-4 decoration-neutral-700 transition-colors cursor-pointer">
+                                            TX: {regHash.slice(0, 10)}...{regHash.slice(-10)}
+                                        </a>
+                                    )}
                                 </div>
 
                                 <Link href="/" className="w-full block">

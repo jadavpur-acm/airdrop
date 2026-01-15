@@ -1,4 +1,3 @@
-import { Worker } from "bullmq";
 import IORedis from "ioredis";
 import { createWalletClient, http, getContract } from "viem";
 import { privateKeyToAccount } from "viem/accounts";
@@ -7,10 +6,7 @@ import "dotenv/config"; // Load env vars
 import prisma from "@/lib/db";
 import { ABI } from "@/lib/abi";
 
-const connection = new IORedis(process.env.REDIS_URL || "redis://localhost:6379", {
-  maxRetriesPerRequest: null,
-});
-
+// Setup Viem Client
 const pKey = process.env.PRIVATE_KEY?.startsWith("0x") 
   ? process.env.PRIVATE_KEY 
   : `0x${process.env.PRIVATE_KEY}`;
@@ -29,12 +25,8 @@ const contract = getContract({
   client,
 });
 
-export const worker = new Worker(
-  "mint-queue",
-  async (job) => {
-    // The 'imageUri' field from the queue now contains the Metadata URI
-    const { teamId, walletAddress, imageUri: tokenUri } = job.data;
-    console.log(`Processing mint for team ${teamId} to ${walletAddress} with URI ${tokenUri}`);
+export async function mintNFT(teamId: string, walletAddress: string, tokenUri: string) {
+    console.log(`Processing direct mint for team ${teamId} to ${walletAddress} with URI ${tokenUri}`);
 
     try {
       // Call batchMint with single item array
@@ -54,10 +46,10 @@ export const worker = new Worker(
       });
 
       console.log(`Team ${teamId} updated`);
+      return hash;
+      
     } catch (error) {
       console.error(`Mint failed for ${teamId}:`, error);
       throw error;
     }
-  },
-  { connection }
-);
+}
